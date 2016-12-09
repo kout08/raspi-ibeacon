@@ -8,33 +8,41 @@ apt_install(){
 	fi
 }
 
-# wget_insatll "$HOME/ibeacon" "bluez-5.43.tar.xz"
+# ex) wget_insatll "$HOME/ibeacon" "bluez-5.43.tar.xz" "https://www.kernel.org/pub/linux/bluetooth/bluez-5.43.tar.xz"
+# $1: Install dir name
+# $2: Install src name
+# $3: Install URL
 wget_install(){
 	if [ -e "$1/$2" ]; then
 		echo "$2 is already exist"
-		#echo "$target is already exist"
 	else
 		echo "$2 is not exist. Start install..."
-		#echo "$target is not exist. Start install..."
 		#wget https://www.kernel.org/pub/linux/bluetooth/bluez-5.43.tar.xz
+		wget $3 -P $1
 	fi
 }
 
-open_tar.xzz(){
-	if [ -e "$1/$2" ]; then
-		echo "$2 is already exist"
-		#echo "$target is already exist"
+# ex) open_tar_xz "$DIR" "bluez-5.43.tar.xz" "bluez-5.43"
+# $1: Open dir name
+# $2: Open tar.xz file name
+# $3: Open src name
+open_tar_xz(){
+	if [ -e "$1/$3" ]; then
+		echo "$3 is already exist"
 	else
-		echo "$2 is not exist. Start open..."
-		#echo "$target is not exist. Start install..."
-		#tar vJxf bluez-5.43.tar.xz
+		echo "$3 is not exist. Start open..."
+		tar vJxf $1/$2 -C $1
 	fi
 }
 
 apt_install libglib2.0-dev
-apt_install libdbus-1-dev
+# apt_install libdbus-1-dev
 apt_install libudev-dev
 apt_install libical-dev
 apt_install libreadline6-dev
 
-wget_insatll "$HOME/ibeacon" "bluez-5.43.tar.xz" "
+# sh path/sample/setup.sh
+# $DIR: path/sample
+DIR=$(dirname $0)
+wget_install "$DIR/" "bluez-5.43.tar.xz" "https://www.kernel.org/pub/linux/bluetooth/bluez-5.43.tar.xz"
+open_tar_xz "$DIR" "bluez-5.43.tar.xz" "bluez-5.43"
