@@ -13,12 +13,13 @@ apt_install(){
 # $2: Install src name
 # $3: Install URL
 wget_install(){
-	if [ -e "$1/$2" ]; then
-		echo "$2 is already exist"
+	DIR=$(dirname $0)
+	if [ -e "$DIR/$1" ]; then
+		echo "$1 is already exist"
 	else
-		echo "$2 is not exist. Start install..."
+		echo "$1 is not exist. Start install..."
 		#wget https://www.kernel.org/pub/linux/bluetooth/bluez-5.43.tar.xz
-		wget $3 -P $1
+		wget $2 -P $DIR
 	fi
 }
 
@@ -27,11 +28,12 @@ wget_install(){
 # $2: Open tar.xz file name
 # $3: Open src name
 open_tar_xz(){
-	if [ -e "$1/$3" ]; then
-		echo "$3 is already exist"
+	DIR=$(dirname $0)
+	if [ -e "$DIR/$2" ]; then
+		echo "$2 is already exist"
 	else
-		echo "$3 is not exist. Start open..."
-		tar vJxf $1/$2 -C $1
+		echo "$2 is not exist. Start open..."
+		tar vJxf $DIR/$1 -C $DIR
 	fi
 }
 
@@ -43,6 +45,5 @@ apt_install libreadline6-dev
 
 # sh path/sample/setup.sh
 # $DIR: path/sample
-DIR=$(dirname $0)
-wget_install "$DIR" "bluez-5.43.tar.xz" "https://www.kernel.org/pub/linux/bluetooth/bluez-5.43.tar.xz"
-open_tar_xz "$DIR" "bluez-5.43.tar.xz" "bluez-5.43"
+wget_install "bluez-5.43.tar.xz" "https://www.kernel.org/pub/linux/bluetooth/bluez-5.43.tar.xz"
+open_tar_xz "bluez-5.43.tar.xz" "bluez-5.43"
