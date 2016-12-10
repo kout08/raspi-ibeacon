@@ -37,11 +37,11 @@ open_tar_xz(){
 	fi
 }
 
-apt_install libglib2.0-dev
+# apt_install libglib2.0-dev
 # apt_install libdbus-1-dev
-apt_install libudev-dev
-apt_install libical-dev
-apt_install libreadline6-dev
+# apt_install libudev-dev
+# apt_install libical-dev
+# apt_install libreadline6-dev
 
 # sh path/sample/setup.sh
 # $DIR: path/sample
