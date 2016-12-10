@@ -44,5 +44,5 @@ apt_install libreadline6-dev
 # sh path/sample/setup.sh
 # $DIR: path/sample
 DIR=$(dirname $0)
-wget_install "$DIR/" "bluez-5.43.tar.xz" "https://www.kernel.org/pub/linux/bluetooth/bluez-5.43.tar.xz"
+wget_install "$DIR" "bluez-5.43.tar.xz" "https://www.kernel.org/pub/linux/bluetooth/bluez-5.43.tar.xz"
 open_tar_xz "$DIR" "bluez-5.43.tar.xz" "bluez-5.43"
