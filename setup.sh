@@ -65,4 +65,4 @@ git_clone "bluez-ibeacon" "https://github.com/carsonmcdonald/bluez-ibeacon.git"
 # cd bluez-ibeacon/bluez-beacon
 # make
 # #Usage: ./beacon <advertisement time in ms> <UUID> <major number> <minor number> <RSSI calibration amount>
-# sudo  ./ibeacon 200 0000000007711001B000001C4D143B52 1 1 -29
+# sudo  ./bluez-ibeacon/bluez-beacon/ibeacon 200 0000000007711001B000001C4D143B52 1 1 -29
