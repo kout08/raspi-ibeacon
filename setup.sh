@@ -34,7 +34,7 @@ git_clone(){
 		echo "$1 is already exist"
 	else
 		echo "$1 is not exist. Start install..."
-		# git clone $2 $DIR/$1
+		git clone $2 $DIR/$1
 	fi
 }
 
@@ -56,7 +56,7 @@ apt_install libglib2.0-dev
 apt_install libdbus-1-dev
 apt_install libudev-dev
 apt_install libical-dev
-# apt_install libreadline6-dev
+apt_install libreadline6-dev
 apt_install ruby
 
 # sh path/sample/setup.sh
